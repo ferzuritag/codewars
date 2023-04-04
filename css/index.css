@@ -8,7 +8,83 @@
   list-style: circle;
 }
 
+body {
+  overflow: hidden;
+}
+
+.display-none {
+  display: none !important;
+}
+
+.modal-wrapper {
+  z-index: 9999;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, .5);
+  display: grid;
+  place-items: center;
+}
+
+.modal-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  background: #f5f5f5;
+  width: 90%;
+  min-width: 400px;
+  max-width: 400px;
+  padding: 2rem;
+}
+
+.modal-body p {
+  font-weight: lighter;
+  font-size: 1.2rem;
+  color: #000000;
+}
+
+.modal-body .button--modal {
+  display: block;
+  border-radius: 30px;
+  padding: .3rem 1rem;
+  background-color: #f85720;
+  font-size: 1.5rem;
+  color: #f5f5f5;
+
+}
+
+
+
+.main-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.main-slider .slide-1 {
+  z-index: 3;
+  position: absolute;
+  left: 0;
+}
+
+.slide {
+  height: 100%;
+  width: 100%;
+}
+
+.main-slider .slide-2 {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  height: 100vh;
+}
+
 .wrapper {
+  width: 100%;
+  height: 100vh;
   position: relative;
   background: linear-gradient(
     164.71deg,
@@ -16,39 +92,42 @@
     #f85720 50.05%,
     #db3014 88.53%
   );
-  height: 100vh;
-  overflow-y: auto;
   line-height: 1.8rem;
 }
 
-.wrapper::after {
-  z-index: 1;
+.hero::after {
   content: "";
   position: absolute;
   background: url("../assets/nube-sup-left.png") no-repeat;
   left: 0;
   top: 0;
-  background-size: 100px;
-  width: 150px;
-  height: 150px;
+  background-size: 100%;
+  width: 25vw;
+  height: 100%;
 }
 
-.wrapper::before {
-  z-index: 1;
-  content: "";
+.hero::before {
   position: absolute;
-  background: url("../assets/nube-sup-right.png") no-repeat;
-  left: 100%;
-  top: 0;
-  transform: translateX(-100%);
-  background-size: 100px;
+  content: "";
+  background: url("../assets/cloud-hero-left-bottom.png") no-repeat;
+  left: 0;
+  top: 100%;
+  transform: translateY(-100%);
   width: 100px;
+  background-size: 100px;
   height: 100px;
 }
 
 .hero {
   position: relative;
-  align-items: center;
+  min-height: 500px;
+  background: linear-gradient(
+    164.71deg,
+    #fa6626 9.15%,
+    #f85720 50.05%,
+    #db3014 88.53%
+  );
+  position: relative;
   width: 100%;
   height: 100vh;
   min-height: 600px;
@@ -56,10 +135,21 @@
 }
 
 .hero__main-logo {
+  position: relative;
   z-index: 1;
   width: 100%;
   max-width: 350px;
   padding: 2rem;
+}
+
+.hero__info-button {
+  z-index: 34;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  transform: translateX(-100%);
+  background: white;
+  color: #000000;
 }
 
 .hero__presented-by {
@@ -90,28 +180,37 @@
 }
 
 .hero__goku__image {
-    opacity: 0.5 ;
+  z-index: 3;
+  display: none;
+  position: absolute;
+  filter: brightness(0.6);
+  opacity: 0.5;
   pointer-events: none;
   user-select: none;
   width: 100%;
-  position: fixed;
-  left: 50%;
+  left: 100%;
   top: 20%;
-  transform: translateX( -50%);
   max-width: 300px;
-  animation: goku-fly 2s ease;
 }
 
-@keyframes goku-fly {
-  from {
-    top: 0;
-    left: 100%;
-    width: 0;
-  }
-  to {
-    left: 50%;
-    top: 20%;
-  }
+.body {
+  position: relative;
+}
+
+.body__goku__image {
+  opacity: 0;
+  max-width: 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.body__goku__image--appear {
+  opacity: .5;
+  animation: teleport-mobile 1s ease-in-out;
 }
 
 .cloud-separator {
@@ -213,8 +312,10 @@
 }
 
 .button {
+  cursor: pointer;
   display: block;
   text-align: center;
+  border: none;
 }
 
 .button--sign-up {
@@ -225,6 +326,41 @@
   border-radius: 30px;
   padding: 0.5rem 2rem;
   background-color: white;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button--sign-up:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.date__logo {
+  margin: auto;
+  max-width: 400px;
+  display: block;
+  width: 100%;
+}
+
+.date__text {
+  text-align: center;
+  margin: auto;
+}
+
+.date .button--sign-up {
+  margin: auto;
+}
+
+.date .input {
+  margin: auto;
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+  color: #000000;
 }
 
 .footer {
@@ -246,7 +382,13 @@
   width: 15%;
 }
 
-@media screen and (min-width: 1024px) {
+.input {
+  border-radius: 30px;
+  padding: 0.7rem;
+  border: none;
+}
+
+@media screen and (min-width: 1240px) {
   .section {
     min-height: 80vh;
     flex-direction: row;
@@ -254,21 +396,119 @@
     align-items: center;
   }
 
-  .wrapper::after {
-    width: 300px;
-    height: 300px;
-    background-size: 300px;
-  }
-
-  .wrapper::before {
-    width: 300px;
-    height: 300px;
-    background-size: 300px;
-  }
-
   .cloud-separator__cloud {
     display: flex;
     justify-content: space-between;
     width: 150px;
+  }
+
+  .hero {
+    position: relative;
+    min-height: 800px;
+  }
+
+  .hero__main-logo {
+    max-width: 450px;
+  }
+  .hero__ecomsur-logo {
+    max-width: 300px;
+  }
+
+  .hero__goku__image {
+    display: block;
+    opacity: 1;
+    left: 100%;
+    top: 50%;
+    max-width: 35vw;
+    filter: none;
+    transform: translate(-100%, -50%);
+  }
+
+  .body__goku__image {
+    opacity: 0;
+    max-width: 300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .body__goku__image--appear {
+    opacity: 1;
+    animation: teleport-desktop 1s ease-in-out;
+  }
+}
+
+@keyframes teleport-mobile {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: .5;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: .5;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: .5;
+  }
+  60% {
+    opacity: 0;
+  }
+  70% {
+    opacity: .5;
+  }
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: .5;
+  }
+  100% {
+    opacity: .5;
+  }
+}
+
+@keyframes teleport-desktop {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
   }
 }

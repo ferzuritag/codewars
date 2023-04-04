@@ -14,101 +14,129 @@
   </head>
 
   <body>
-    <audio autoplay src="./assets/dragonball.mp3"></audio>
     <div class="wrapper">
-      <main id="hero" class="hero">
-        <div class="hero__presented-by">
-          <img class="hero__main-logo" src="./assets/main-logo.png" />
-          <p class="hero__presented-by__text bold">PRESENTADO POR:</p>
-          <img class="hero__ecomsur-logo" src="./assets/logo-ecomsur.svg" />
-        </div>
-        
-        <div class="hero__goku">
-          <img class="hero__goku__image" src="./assets/goku.png">
-        </div>
-      </main>
-      <div class="cloud-separator">
-        <img class="cloud-separator__cloud" src="./assets/nube-left.svg" />
-        <img class="cloud-separator__cloud" src="./assets/nube-right.svg" />
-      </div>
-      <section class="section">
-        <div class="tournament-info__invitation">
-          <img
-            class="tournament-info__invitation__logo"
-            src="./assets/info-tournament.png"
-          />
-          <p class="tournament-info__text">
-            Ecomsur te invita a la 3era edición de Code Wars, un concurso de
-            programación en el cual pueden participar todos los colaboradores de
-            la empresa.
-            <br />
-            <br />
-            VIERNES 16 DE DICIEMBRE 12 PM
-            <br />
-            <br />
-            MX-CO-PE / 3 PM CL
+      <div id="main-modal" class="modal-wrapper">
+        <div class="modal-body">
+          <p>
+            Esta aplicación contiene sonido.
           </p>
-          <br />
-          <a class="button button--sign-up">Inscribirme</a>
-        </div>
-        <div class="tournament-info__countries">
-          <img
-            class="tournament-info__countries__logo"
-            src="./assets/countries.png"
-          />
-        </div>
-      </section>
-      <div class="cloud-separator">
-        <img class="cloud-separator__cloud" src="./assets/nube-left.svg" />
-        <img class="cloud-separator__cloud" src="./assets/nube-right.svg" />
-      </div>
 
-      <section class="section">
-        <div>
-          <img class="tournament-rules__logo" src="./assets/info-logo.png" />
-          <ul class="tournament-rules__rules">
-            <li>Duelo en parejas</li>
-            <li>12 combates de codigo a superar</li>
-            <li>Gana el que mayor puntos consiga</li>
-            <li>Duración del torneo <span class="bold">2h</span></li>
-          </ul>
+          <button class="button button--modal" onclick="hiddeModal()">Continuar</button>
         </div>
-        <div class="tournament-rules__duo-match">
-          <img
-            class="tournament-rules__duo-match__logo"
-            src="./assets/duo-match.png"
-          />
-          <p>Selecciona bien con quien harás la fusión</p>
-        </div>
-      </section>
-      <div class="cloud-separator">
-        <img class="cloud-separator__cloud" src="./assets/nube-left.svg" />
-        <img class="cloud-separator__cloud" src="./assets/nube-right.svg" />
       </div>
-      <section class="section">
-        <div>
-          <img class="awards__logo" src="./assets/awards.png" />
-          <p class="awards__text">
-            Gana todos los duelos y demuestra ser el mejor en las Artes del
-            Código
-            <br />
-            <br />
-            1ER LUGAR (pareja)
-            <br />
-            <br />
-            Una tarjeta de regalo de Amazon con un valor de 50 dlls (para cada
-            uno)
-          </p>
+      <div class="main-slider">
+        <div class="slide slide-1 body">
+          <main id="hero" class="hero">
+            <div class="hero__presented-by">
+              <img class="hero__main-logo" src="./assets/main-logo.png" />
+              <p class="hero__presented-by__text bold">PRESENTADO POR:</p>
+              <img class="hero__ecomsur-logo" src="./assets/logo-ecomsur.svg" />
+            </div>
+            <div class="hero__goku">
+              <img class="hero__goku__image" src="./assets/goku-hero.png" />
+            </div>
+          </main>
         </div>
-        <div class="amazon-award">
-          <img class="amazon-award__logo" src="./assets/amazon-award.png" />
+        <div class="slide slide-2">
+          <img
+            id="goku-body"
+            class="body__goku__image"
+            src="./assets/goku.png"
+          />
+          <div id="separator-1" class="cloud-separator">
+            <img class="cloud-separator__cloud" src="./assets/nube-left.svg" />
+            <img class="cloud-separator__cloud" src="./assets/nube-right.svg" />
+          </div>
+          <section id="tournament-info" class="section">
+            <div class="tournament-info__invitation">
+              <img
+                class="tournament-info__invitation__logo"
+                src="./assets/info-tournament.png"
+              />
+              <p class="tournament-info__text">
+                Ecomsur te invita a la 3era edición de Code Wars, un concurso de
+                programación en el cual pueden participar todos los
+                colaboradores de la empresa.
+                <br />
+                <br />
+                VIERNES 16 DE DICIEMBRE 12 PM
+                <br />
+                <br />
+                MX-CO-PE / 3 PM CL
+              </p>
+              <br />
+              <a class="button button--sign-up">Inscribirme</a>
+            </div>
+            <div class="tournament-info__countries">
+              <img
+                class="tournament-info__countries__logo"
+                src="./assets/countries.png"
+              />
+            </div>
+          </section>
+          <div class="cloud-separator">
+            <img class="cloud-separator__cloud" src="./assets/nube-left.svg" />
+            <img class="cloud-separator__cloud" src="./assets/nube-right.svg" />
+          </div>
+
+          <section class="section">
+            <div>
+              <img
+                class="tournament-rules__logo"
+                src="./assets/info-logo.png"
+              />
+              <ul class="tournament-rules__rules">
+                <li>Duelo en parejas</li>
+                <li>12 combates de codigo a superar</li>
+                <li>Gana el que mayor puntos consiga</li>
+                <li>Duración del torneo <span class="bold">2h</span></li>
+              </ul>
+            </div>
+            <div class="tournament-rules__duo-match">
+              <img
+                class="tournament-rules__duo-match__logo"
+                src="./assets/duo-match.png"
+              />
+              <p>Selecciona bien con quien harás la fusión</p>
+            </div>
+          </section>
+          <div class="cloud-separator">
+            <img class="cloud-separator__cloud" src="./assets/nube-left.svg" />
+            <img class="cloud-separator__cloud" src="./assets/nube-right.svg" />
+          </div>
+          <section class="section">
+            <div>
+              <img class="awards__logo" src="./assets/awards.png" />
+              <p class="awards__text">
+                Gana todos los duelos y demuestra ser el mejor en las Artes del
+                Código
+                <br />
+                <br />
+                1ER LUGAR (pareja)
+                <br />
+                <br />
+                Una tarjeta de regalo de Amazon con un valor de 50 dlls (para
+                cada uno)
+              </p>
+            </div>
+            <div class="amazon-award">
+              <img class="amazon-award__logo" src="./assets/amazon-award.png" />
+            </div>
+          </section>
+
+          <div id="sign-up" class="date">
+            <img class="date__logo" src="./assets/date.png" alt="" />
+            <p class="date__text">12 PM MX-CO-PE / 3 PM CL</p>
+            <input class="input" type="text" placeholder="Ingresa tu Correo" />
+            <button class="button button--sign-up">Inscribirme</button>
+          </div>
+          <footer class="footer">
+            <img class="footer__clouds" src="./assets/cloud-footer-left.svg" />
+            <img class="footer__shenlong" src="./assets/shenlong.png" />
+            <img class="footer__clouds" src="./assets/cloud-footer-right.svg" />
+          </footer>
         </div>
-      </section>
-      <footer class="footer">
-        <img class="footer__clouds" src="./assets/cloud-footer-left.svg" />
-        <img class="footer__shenlong" src="./assets/shenlong.png" />
-        <img class="footer__clouds" src="./assets/cloud-footer-right.svg" />
-      </footer>
+      </div>
     </div>
     <link rel="stylesheet" href="./css/index.css" />
     <script src="./javascript/index.js"></script>
