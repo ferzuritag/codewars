@@ -3,7 +3,7 @@ var teleportAudio = new Audio('../assets/teleport.mp3')
 var dragonBallMusic = new Audio('../assets/dragonball.mp3')
 
 window.addEventListener('load', () => {
-    const separator1 = document.querySelector("#separator-1");
+    const section1 = document.querySelector("section");
     const gokuBody = document.querySelector('#goku-body');
     const sections = document.querySelectorAll('section');
 
@@ -35,11 +35,10 @@ window.addEventListener('load', () => {
             }
         })
     }, {
-
         rootMargin: "0px",
-        threshold: 1.0
+        threshold: .50
     });
-    observerGokuAppear.observe(separator1);
+    observerGokuAppear.observe(section1);
 })
 
 function hiddeModal() {
